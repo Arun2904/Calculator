@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <!-- <link rel="stylesheet" href="txt.css"> -->
+    <style>
+.container{
+    text-align: center;
+    /* background-color: aqua; */
+}
+input{
+    font-size: 29px;
+    height: 50px;
+    /* border: 2px solid black;  */
+    border-radius: 25px;
+
+}
+table{
+    margin: auto;
+    font-size: 24px;
+   /* border: 2px solid black;  */
+   border-radius: 30px;
+
+}
+button{
+    font-size:45px ;
+    width: 85px;
+    border-radius: 30px;
+    background-color: rgb(198, 185, 185);
+    border: 2px solid rgb(85, 225, 241);
+    
+
+}
+.calculator{
+    display: inline-block;
+    background-color: rgb(242, 124, 217);
+    border-radius: 35px;
+    padding: 15px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculator</h1>
+
+        <div class="calculator">
+            <input type="text" name="screen" id="screen">
+        <table>
+        <tr>
+            <td><button>C</button></td>
+            <td><button>AC</button></td>
+            <td><button>X</button></td>
+            <td><button>%</button></td>
+        </tr>
+        <tr>  
+            <td><button>7</button></td>
+            <td><button>8</button></td>
+            <td><button>9</button></td>
+            <td><button>+</button></td>
+        </tr>
+        <tr>
+            <td><button>4</button></td>
+            <td><button>5</button></td>
+            <td><button>6</button></td>
+            <td><button>-</button></td>
+        </tr>
+        <tr>
+            <td><button>1</button></td>
+            <td><button>2</button></td>
+            <td><button>3</button></td>
+            <td><button>/</button></td>
+        </tr>
+        <tr>
+            <td><button>0</button></td>
+            <td><button>00</button></td>
+            <td><button>.</button></td>
+            <td><button>=</button></td>
+        </tr>
+        </table>
+        </div>
+    </div>
+    <script>
+
+let screen = document.getElementById('screen');
+buttons = document.querySelectorAll('button');
+let screenValue = '';
+for ( item of buttons) {
+   item.addEventListener('click', (e)=>{
+      buttonText = e.target.innerText;
+      console.log('Button text is ', buttonText)
+      if(buttonText=='X'){
+         buttonText = '*';
+         screenValue += buttonText;
+         screen.value = screenValue;
+      } 
+      else if ( buttonText =='C'){
+         screenValue = "";
+         screen.value = screenValue;
+      }
+      else if ( buttonText =='AC'){
+         screenValue = "";
+         screen.value = screenValue;
+      }
+      else if (buttonText =='=') {
+         screen.value = eval(screenValue);
+      }
+      else {
+         screenValue += buttonText;
+         screen.value = screenValue;
+      }
+   })
+}
+
+    </script>
+</body>
+<!-- <script src="tut1.js"></script> -->
+</html>
